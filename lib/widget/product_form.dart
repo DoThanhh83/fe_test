@@ -78,12 +78,19 @@ class _ProductFormState extends State<ProductForm> {
                 const Text('Ảnh sản phẩm',style: TextStyle(fontSize: 17)),
                 ElevatedButton(
                   onPressed: _pickImage,
-                  style: ElevatedButton.styleFrom(),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      side: BorderSide(color: Colors.black, width: 1), // Viền đen với độ rộng 1
+                    ),
+                  ),
                   child: Row(
                    mainAxisSize: MainAxisSize.min,
                     children: [
                       const Icon(Icons.cloud_upload ),
                       const Text('Chọn tệp tin (tối đa 5MB)'),
+                      imageFile != null ? SizedBox(width: 5,) :Container(),
                       imageFile != null ? Container(height:50,width:50,child: Image.file(imageFile!)) : Container()
                     ],
                   ),
@@ -109,6 +116,13 @@ class _ProductFormState extends State<ProductForm> {
                   //   print('có lõi ');
                   // }}
                 },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black, backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    side: BorderSide(color: Colors.black, width: 1), // Viền đen với độ rộng 1
+                  ),
+                ),
                 child: const Text('Tạo sản phẩm'),
               ),
             ),
